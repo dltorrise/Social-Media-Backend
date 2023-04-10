@@ -1,4 +1,4 @@
-const { Schema, Types } = require('mongoose');
+const { Schema, Types, model } = require('mongoose');
 
 const userSchema = new Schema(
   {
@@ -11,19 +11,26 @@ const userSchema = new Schema(
       required: true,
       maxlength: 50,
       minlength: 4,
-      //might generate something random
-      //default: 'Unnamed assignment',
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
+    thoughts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'thought', //looks for thought collection in database
+        },
+    ],
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'user', //references other users
+        }
+    ],
   },
   {
     toJSON: { //pulled into JSON format run getters
-      getters: true,
+      getters: true, //runs getters before JSON data is returned
     },
+    id: false 
   }
 );
-
-module.exports = userSchema;
+const Users = model('user', userSchema);
+module.exports = Users;
