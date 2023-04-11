@@ -23,6 +23,16 @@ const usercontrollers = {
         }
     },
 
+    async updateUser (req, res) {
+        try {
+            const newUser = await Users.findOneAndUpdate({userId: req.params.id}, req.body) //will create user just with id
+            res.json(`${newUser.username}'s info has been updated.`)
+        } catch (err) {
+            console.log(err)
+            res.status(500).json(err)
+        }
+    },
+
     async addFriend (req, res) {
         try {
             //want to change it so you find them by _id and username in friendslist
