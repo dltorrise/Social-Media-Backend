@@ -27,4 +27,5 @@ const reactionsSchema = new Schema(
       }
       )
 
+      //because this won't be turned into a model, it can just be exported as a schema
       module.exports = reactionsSchema;

@@ -35,6 +35,6 @@ const userThoughtsSchema = new Schema(
 );
 
 //intialize the model
-const UserThoughts = model('userThoughts', userThoughtsSchema);
+const Thoughts = model('userThoughts', userThoughtsSchema);
 
-module.exports = UserThoughts;
+module.exports = Thoughts;
