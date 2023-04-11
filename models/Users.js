@@ -6,7 +6,7 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
     },
-    userName: {
+    username: {
       type: String,
       required: true,
       maxlength: 50,

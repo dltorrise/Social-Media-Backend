@@ -1,4 +1,5 @@
 const { Users } = require('../models');
+const ObjectId = require('mongodb').ObjectId;
 
 const usercontrollers = {
     async getUsers (req, res) {
@@ -15,7 +16,7 @@ const usercontrollers = {
     async addUser (req, res) {
         try {
             const newUser = await Users.create( req.body) //will create user just with id
-            res.json(`${newUser.userName} has been added to the API`)
+            res.json(`${newUser.username} has been added to the API`)
         } catch (err) {
             console.log(err)
             res.status(500).json(err)
@@ -25,7 +26,10 @@ const usercontrollers = {
     async addFriend (req, res) {
         try {
             const newFriend = await Users.findOneAndUpdate({userId: req.params.id}, {$addToSet: {friends: req.body.userId}})
-            res.json()
+            res.json("Congratulations! You made a new freind!")
+        }catch (err) {
+            console.log(err)
+            res.status(500).json(err)
         }
     }
 }
