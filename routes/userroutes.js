@@ -18,6 +18,7 @@ router.route('/').get(getUsers).post(addUser)
 router.route('/:id').put(updateUser)
 
 //route to add friends
+//would it be post or put?
 router.route('/add-friend/:id').post(addFriend)
 
 //route to remove friends

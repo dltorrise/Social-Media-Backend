@@ -1,5 +1,5 @@
 const { Users } = require('../models');
-const ObjectId = require('mongodb').ObjectId;
+// const ObjectId = require('mongodb').ObjectId;
 
 const usercontrollers = {
     async getUsers (req, res) {
@@ -23,9 +23,11 @@ const usercontrollers = {
         }
     },
 
+    //want to confirm this wouldn't bring up any issues
+    //why not use $set
     async updateUser (req, res) {
         try {
-            const newUser = await Users.findOneAndUpdate({userId: req.params.id}, req.body) //will create user just with id
+            const newUser = await Users.findOneAndUpdate({userId: req.params.id}, req.body) 
             res.json(`${newUser.username}'s info has been updated.`)
         } catch (err) {
             console.log(err)

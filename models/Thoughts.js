@@ -1,5 +1,5 @@
 const { Schema, Types, model } = require('mongoose');
-const reactionSchema = require('./Reactions');
+// const reactionSchema = require('./Reactions');
 
 const userThoughtsSchema = new Schema(
   {
@@ -10,10 +10,6 @@ const userThoughtsSchema = new Schema(
     thought: {
       type: String,
       required: true,
-    //   maxlength: 50,
-    //   minlength: 4,
-      //might generate something random
-      //default: 'Unnamed assignment',
     },
     createdAt: {
       type: Date,
@@ -35,6 +31,6 @@ const userThoughtsSchema = new Schema(
 );
 
 //intialize the model
-const Thoughts = model('userThoughts', userThoughtsSchema);
+const Thoughts = model('thoughts', userThoughtsSchema);
 
 module.exports = Thoughts;
