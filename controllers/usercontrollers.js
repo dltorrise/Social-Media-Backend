@@ -1,5 +1,4 @@
 const { Users } = require('../models');
-// const ObjectId = require('mongodb').ObjectId;
 
 const usercontrollers = {
     async getUsers (req, res) {
@@ -23,8 +22,6 @@ const usercontrollers = {
         }
     },
 
-    //want to confirm this wouldn't bring up any issues
-    //why not use $set
     async updateUser (req, res) {
         try {
             const newUser = await Users.findOneAndUpdate({userId: req.params.id}, req.body, {new: true}) 
@@ -37,7 +34,6 @@ const usercontrollers = {
 
     async addFriend (req, res) {
         try {
-            //want to change it so you find them by _id and username in friendslist
             const newFriend = await Users.findOneAndUpdate({userId: req.params.id}, {$addToSet: {friends: req.body.userId}})
             res.json("Congratulations! You made a new friend!")
         }catch (err) {
@@ -48,9 +44,7 @@ const usercontrollers = {
 
     async removeFriend (req, res) {
         try {
-            //want to change it so you find them by _id and username in friendslist
             const deletedFriend = await Users.findOneAndUpdate({userId: req.params.id}, {$pull: {friends: req.body.userId}})
-            //how to reference specific person
             res.json("You have removed this person as a friend")
         }catch (err) {
             console.log(err)

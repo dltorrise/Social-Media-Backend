@@ -4,7 +4,7 @@ const thoughtcontrollers = {
 
     async getThoughts (req, res) {
         try {
-            //difference between find with object in it and without
+            //passing in curly braces means you are telling it this should be object type
             const thoughtData = await Thoughts.find({})
             .select('-__v')
             res.json(thoughtData)
@@ -17,7 +17,6 @@ const thoughtcontrollers = {
     async newThought (req,res) {
         try {
         const newThought = await Thoughts.create(req.body)
-        //would this just add the id though?
         await Users.findOneAndUpdate({userId: req.params.id}, {$addToSet: {thoughts: newThought.thoughtId}})
         res.json("Thank you for adding your thoughts!")
         } catch (err) {
@@ -28,7 +27,8 @@ const thoughtcontrollers = {
 
     async updateThought (req,res) {
         try {
-            //$set requires req.body because it looks for an object
+            //$set requires req.body because it looks for an object because you need a key and a value
+            //$set changes based on what's passed in, telling keys you need to update and values it needs to change it to
         const thought = await Thoughts.findOneAndUpdate({thoughtId: req.params.thoughtId}, {$set: req.body})
         res.json("Your thought has been updated.")
         } catch (err) {
@@ -40,6 +40,7 @@ const thoughtcontrollers = {
     async deleteThought (req,res) {
         try {
         const exThought = await Thoughts.findOneAndDelete({thoughtId: req.params.thoughtId})
+        //$pull matches key and then pulls it
         const user = await Users.findOneAndUpdate({thoughts: req.params.thoughtId}, {$pull: {thoughts: req.params.thoughtId}})
         res.json("Your thought has been deleted.")
         } catch (err) {

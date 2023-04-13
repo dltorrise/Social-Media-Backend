@@ -7,7 +7,7 @@ const {
    addFriend,
    removeFriend,
    deleteUser
-} = require('../controllers/usercontrollers') //add path
+} = require('../controllers/usercontrollers') 
 
 // /api/users
 

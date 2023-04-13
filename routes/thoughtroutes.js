@@ -8,7 +8,7 @@ const {
     deleteThought,
     newReaction,
     deleteReaction
-} = require('../controllers/thoughtcontrollers'); //add path
+} = require('../controllers/thoughtcontrollers'); 
 
 
 // api/thoughts
@@ -20,7 +20,6 @@ router.route('/').get(getThoughts)
 router.route('/:id').post(newThought)
 
 //update or delete a thought
-//for new reaction would it be put or post??
 router.route('/:thoughtId').put(updateThought).delete(deleteThought)
 
 //add or delete a reaction

@@ -7,4 +7,3 @@ router.use('/api/thoughts', thoughtRoutes);
 
 module.exports = router;
 
-//here is where all my code screws up
