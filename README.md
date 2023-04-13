@@ -22,7 +22,7 @@ and ~~add and remove friends to a user’s friend list~~
   - ii. [General Information](#general-information)
     - i. [Installation](#installation)
     - ii. [Usage](#usage)
-  -iii. [Demo Video & Screenshot](#demo-video-&-screenshot)
+  - iii. [Demo Video & Screenshot](#demo-video-&-screenshot)
 
   ## Description
   
