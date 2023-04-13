@@ -28,8 +28,8 @@ const thoughtcontrollers = {
 
     async updateThought (req,res) {
         try {
-            //i wonder if req.body is adequate
-        const thought = await Thoughts.findOneAndUpdate({thoughtId: req.params.id}, {$set: req.body})
+            //$set requires req.body because it looks for an object
+        const thought = await Thoughts.findOneAndUpdate({thoughtId: req.params.thoughtId}, {$set: req.body})
         res.json("Your thought has been updated.")
         } catch (err) {
             console.log(err)
