@@ -27,7 +27,7 @@ const usercontrollers = {
     //why not use $set
     async updateUser (req, res) {
         try {
-            const newUser = await Users.findOneAndUpdate({userId: req.params.id}, req.body) 
+            const newUser = await Users.findOneAndUpdate({userId: req.params.id}, req.body, {new: true}) 
             res.json(`${newUser.username}'s info has been updated.`)
         } catch (err) {
             console.log(err)
