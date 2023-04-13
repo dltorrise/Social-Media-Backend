@@ -40,6 +40,7 @@ const thoughtcontrollers = {
     async deleteThought (req,res) {
         try {
         const exThought = await Thoughts.findOneAndDelete({thoughtId: req.params.thoughtId})
+        const user = await Users.findOneAndUpdate({thoughts: req.params.thoughtId}, {$pull: {thoughts: req.params.thoughtId}})
         res.json("Your thought has been deleted.")
         } catch (err) {
             console.log(err)
