@@ -39,7 +39,7 @@ const thoughtcontrollers = {
 
     async deleteThought (req,res) {
         try {
-        const exThought = await Thoughts.findOneAndDelete({thoughtId: req.params.id})
+        const exThought = await Thoughts.findOneAndDelete({thoughtId: req.params.thoughtId})
         res.json("Your thought has been updated.")
         } catch (err) {
             console.log(err)
@@ -49,7 +49,7 @@ const thoughtcontrollers = {
 
     async newReaction (req, res) {
         try {
-            const newReaction = await Thoughts.findOneAndUpdate({thoughtId: req.params.id}, {$addToSet: {reactions: req.body.reaction}})
+            const newReaction = await Thoughts.findOneAndUpdate({thoughtId: req.params.thoughtId}, {$addToSet: {reactions: req.body.reaction}})
             res.json("Your reaction has been added.")
             } catch (err) {
                 console.log(err)
@@ -59,7 +59,7 @@ const thoughtcontrollers = {
 
     async deleteReaction (req, res) {
         try {
-            const exReaction = await Thoughts.findOneAndRemove({thoughtId: req.params.id}, {$pull: {reactions: {reaction: req.body.id}}})
+            const exReaction = await Thoughts.findOneAndRemove({thoughtId: req.params.thoughtId}, {$pull: {reactions: {reaction: req.body.id}}})
             res.json("Your reaction has been deleted.")
             } catch (err) {
                 console.log(err)
