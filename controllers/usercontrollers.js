@@ -39,7 +39,7 @@ const usercontrollers = {
         try {
             //want to change it so you find them by _id and username in friendslist
             const newFriend = await Users.findOneAndUpdate({userId: req.params.id}, {$addToSet: {friends: req.body.userId}})
-            res.json("Congratulations! You made a new freind!")
+            res.json("Congratulations! You made a new friend!")
         }catch (err) {
             console.log(err)
             res.status(500).json(err)

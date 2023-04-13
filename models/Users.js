@@ -15,13 +15,13 @@ const userSchema = new Schema(
     thoughts: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'thought', //looks for thought collection in database
+            ref: 'Thoughts', //looks for thought collection in database
         },
     ],
     friends: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'user', //references other users
+            ref: 'Users', //references other users
         }
     ],
   },
