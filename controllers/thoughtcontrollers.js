@@ -1,5 +1,4 @@
 const { Users, Thoughts } = require('../models');
-//why is Thoughts object not importing
 
 const thoughtcontrollers = {
 
