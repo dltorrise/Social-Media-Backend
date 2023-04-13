@@ -59,7 +59,7 @@ const thoughtcontrollers = {
 
     async deleteReaction (req, res) {
         try {
-            const exReaction = await Thoughts.findOneAndRemove({reactionId: req.params.reactionId})
+            const exReaction = await Thoughts.findOneAndUpdate({thoughtId: req.params.thoughtId}, {$pull: {reactions: {reactionId: req.body.reactionId}}})
             res.json("Your reaction has been deleted.")
             } catch (err) {
                 console.log(err)

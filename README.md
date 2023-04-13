@@ -6,15 +6,18 @@ WHEN I enter the command to invoke the application
 THEN my server is started and the Mongoose models are synced to the MongoDB database
 WHEN I open API GET routes in Insomnia for ~~users~~ and thoughts
 THEN the data for each of these routes is displayed in a formatted JSON
-    -get all thoughts
+    ~~get all thoughts~~
 WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully ~~create, update, and delete users~~ and 
-    -create, update, and delete thoughts in my database
+    ~~create, update, and delete thoughts in my database~~
 WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully 
-    -create and delete reactions to thoughts 
+    ~~create~~ and delete reactions to thoughts 
 and ~~add and remove friends to a user’s friend list~~
 ```
+
+just finish delete route and then in general I have questions
+and then I can make the video. 
 
   ## Table of Contents
   
