@@ -21,10 +21,10 @@ router.route('/:id').post(newThought)
 
 //update or delete a thought
 //for new reaction would it be put or post??
-router.route('/:thoughtId').put(updateThought).delete(deleteThought).put(newReaction).put(deleteReaction)
+router.route('/:thoughtId').put(updateThought).delete(deleteThought)
 
 //add or delete a reaction
-router.route('/')
+router.route('/react/:thoughtId').put(newReaction).put(deleteReaction)
 
 
 module.exports = router;
