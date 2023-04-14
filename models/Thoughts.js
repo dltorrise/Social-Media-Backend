@@ -3,6 +3,7 @@ const reactionSchema = require('./Reactions');
 
 const userThoughtsSchema = new Schema(
   {
+    //need to delete this
     thoughtId: {
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
@@ -18,7 +19,11 @@ const userThoughtsSchema = new Schema(
       default: Date.now,
       get: function(value) {
         return value.toDateString()
-    }
+    },
+    username: {
+      type: String,
+      required: true,
+    },
     },
     reactions: [reactionSchema],
   },

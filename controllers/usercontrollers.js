@@ -15,7 +15,7 @@ const usercontrollers = {
     async getUser (req, res) {
         try {
            const userData = await Users.find({userId: req.params.id})
-        //    const thoughtData = await Thoughts.find({userId: req.params.id})
+        //    let thoughtData = await Thoughts.find({userId: req.params.id})
            .select('-__v')
         //    .populate(thoughtData)
            res.json(userData)
