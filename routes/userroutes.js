@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const {
    getUsers,
+   getUser,
    addUser,
    updateUser,
    addFriend,
@@ -15,7 +16,7 @@ const {
 router.route('/').get(getUsers).post(addUser)
 
 //route to update users
-router.route('/:id').put(updateUser)
+router.route('/:id').get(getUser).put(updateUser)
 
 //route to add friends
 //would it be post or put?

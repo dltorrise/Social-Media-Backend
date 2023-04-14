@@ -1,4 +1,4 @@
-const { Users } = require('../models');
+const { Users, Thoughts } = require('../models');
 
 const usercontrollers = {
     async getUsers (req, res) {
@@ -11,6 +11,20 @@ const usercontrollers = {
             res.status(500).json(err)
         }
     },
+
+    async getUser (req, res) {
+        try {
+           const userData = await Users.find({userId: req.params.id})
+        //    const thoughtData = await Thoughts.find({userId: req.params.id})
+           .select('-__v')
+        //    .populate(thoughtData)
+           res.json(userData)
+        } catch (err) {
+            console.log(err)
+            res.status(500).json(err)
+        }
+    },
+
 
     async addUser (req, res) {
         try {

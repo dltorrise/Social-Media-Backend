@@ -31,6 +31,11 @@ const userThoughtsSchema = new Schema(
   }
 );
 
+userThoughtsSchema
+.virtual('reactionsCount')
+.get( function() {
+  return this.friends.length
+})
 //intialize the model
 const Thoughts = model('thoughts', userThoughtsSchema);
 
