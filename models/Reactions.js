@@ -6,9 +6,11 @@ const reactionsSchema = new Schema(
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId(),
         },
-        reaction: {
+        reactionBody: {
             type: String,
-            required: true
+            required: true,
+            maxlength: 280,
+   
         },
         username: {
             type: String,
@@ -17,6 +19,9 @@ const reactionsSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            get: function(value) {
+                return value.toDateString()
+            }
           } 
     },
     {
@@ -26,6 +31,8 @@ const reactionsSchema = new Schema(
         id: false //otherwise it will create an id property
       }
       )
+
+
 
       //because this won't be turned into a model, it can just be exported as a schema
       module.exports = reactionsSchema;

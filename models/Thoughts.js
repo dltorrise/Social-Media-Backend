@@ -7,13 +7,18 @@ const userThoughtsSchema = new Schema(
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
     },
-    thought: {
+    thoughtText: {
       type: String,
       required: true,
+      maxlength: 280,
+      minlength: 1,
     },
     createdAt: {
       type: Date,
       default: Date.now,
+      get: function(value) {
+        return value.toDateString()
+    }
     },
     reactions: [reactionSchema],
   },

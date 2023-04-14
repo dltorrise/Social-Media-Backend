@@ -8,7 +8,19 @@ const userSchema = new Schema(
     },
     username: {
       type: String,
+      unique: true, 
       required: true,
+      trimmed: true,
+      validate: function(v) {
+        return /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/.test(v)
+      },
+      message: props => `${props.value} is not a valid phone number!`
+    },
+    email: {
+      type: String,
+      unique: true, 
+      required: true,
+      trimmed: true,
       maxlength: 50,
       minlength: 4,
     },
@@ -32,5 +44,12 @@ const userSchema = new Schema(
     id: false 
   }
 );
+
+userSchema
+.virtual('friendsLength')
+.get( function() {
+  return this.friends.length
+})
+
 const Users = model('user', userSchema);
 module.exports = Users;
