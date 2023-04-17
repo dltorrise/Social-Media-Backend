@@ -3,11 +3,10 @@ const reactionSchema = require('./Reactions');
 
 const userThoughtsSchema = new Schema(
   {
-    //need to delete this
-    thoughtId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
+    // thoughtId: {
+    //   type: Schema.Types.ObjectId,
+    //   default: () => new Types.ObjectId(),
+    // },
     thoughtText: {
       type: String,
       required: true,
@@ -39,7 +38,7 @@ const userThoughtsSchema = new Schema(
 userThoughtsSchema
 .virtual('reactionsCount')
 .get( function() {
-  return this.friends.length
+  return this.reactions.length
 })
 //intialize the model
 const Thoughts = model('thoughts', userThoughtsSchema);

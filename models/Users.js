@@ -2,10 +2,10 @@ const { Schema, Types, model } = require('mongoose');
 
 const userSchema = new Schema(
   {
-    userId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
+    // userId: {
+    //   type: Schema.Types.ObjectId,
+    //   default: () => new Types.ObjectId(),
+    // },
     username: {
       type: String,
       unique: true, 
@@ -17,7 +17,7 @@ const userSchema = new Schema(
       unique: true, 
       required: true,
       validate: function(v) {
-        return /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/.test(v)
+        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v)
       },
     },
     thoughts: [
