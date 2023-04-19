@@ -17,7 +17,7 @@ const thoughtcontrollers = {
     async getThought (req, res) {
         try {
             //passing in curly braces means you are telling it this should be object type
-            const thoughtData = await Thoughts.find({_id: req.body.userId})
+            const thoughtData = await Thoughts.find({_id: req.params.thoughtId})
             .select('-__v')
             res.json(thoughtData)
          } catch (err) {

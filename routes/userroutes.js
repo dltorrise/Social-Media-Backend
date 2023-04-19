@@ -13,7 +13,9 @@ const {
 // /api/users
 
 //route to get users, get a single user, add a user, update user, and delete user
-router.route('/').get(getUsers).get(getUser).post(addUser).put(updateUser).delete(deleteUser)
+router.route('/').get(getUsers).post(addUser).put(updateUser).delete(deleteUser)
+
+router.route('/:userId').get(getUser)
 
 //route to add and remove friends
 router.route('/:userId/friends/:friendId').post(addFriend).delete(removeFriend)
