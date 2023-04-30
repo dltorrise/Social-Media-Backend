@@ -9,18 +9,6 @@
   - iii. [Demo Video & Screenshot](#demo-video-&-screenshot)
 
   ## Description
-  
-  <!-- TODO -->
-  **Double Check This**
-  * `thoughts`
-  * Array of `_id` values referencing the `Thought` model
-
-* `friends`
-  * Array of `_id` values referencing the `User` model (self-reference)
-  
-**finish routes**
-**make video**
-<!-- end -->
  
   This is an API in which you can add or create users as well as thoughts and reactions. Delete routes are also available. This application utilyzes MongoDb and Express and can be tested in Insomnia. 
 
@@ -37,5 +25,16 @@
   Usage of this API is outlined in the demo video below. 
   
 ## Demo Video and Screenshot
+
+Screenshot of Insomnia Get Users route
+
+![Insomia Screenshot of GetUsers Route](./assets/images/insomnia.png)
  
+Screenshot of user controllers
+
+![screenshot of user routes including get user, update user, and more](./assets/images/controllers.png)
+
+[Demo video](https://www.youtube.com/watch?v=92qUAcp7H30)
+
+
 

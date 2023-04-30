@@ -14,7 +14,7 @@ const usercontrollers = {
 
     async getUser (req, res) {
         try {
-           const userData = await Users.find({_id: req.body.userId})
+           const userData = await Users.find({_id: req.params.userId})
            .select('-__v')
            res.json(userData)
         } catch (err) {
@@ -37,7 +37,7 @@ const usercontrollers = {
     async updateUser (req, res) {
         try {
             const newUser = await Users.findOneAndUpdate({_id: req.body.userId}, req.body, {new: true}) 
-            res.json(`${newUser.username}'s info has been updated.`)
+            res.json("You information was updated.")
         } catch (err) {
             console.log(err)
             res.status(500).json(err)
@@ -69,7 +69,7 @@ const usercontrollers = {
             const exUser = await Users.findOneAndDelete({_id: req.body.userId})
             // {*BONUS*} pull thoughts associated with user
             //match a thought to a user
-            const deletedThoughts = await Thoughts.findByIdAndUpdate({userId: req.params.id}, {$pull: {thoughts}})
+            // const deletedThoughts = await Thoughts.findByIdAndUpdate({userId: req.params.id}, {$pull: {thoughts}})
             res.json("We are sorry to see you go. Feel free to sign up again any time!")
         }catch (err) {
             console.log(err)
