@@ -6,7 +6,7 @@
   - ii. [General Information](#general-information)
     - i. [Installation](#installation)
     - ii. [Usage](#usage)
-  - iii. [Demo Video & Screenshot](#demo-video-&-screenshot)
+  - iii. [Demo Video & Screenshots](#demo-video-&-screenshots)
 
   ## Description
  
@@ -24,7 +24,7 @@
 
   Usage of this API is outlined in the demo video below. 
   
-## Demo Video and Screenshot
+## Demo Video and Screenshots
 
 Screenshot of Insomnia Get Users route
 
